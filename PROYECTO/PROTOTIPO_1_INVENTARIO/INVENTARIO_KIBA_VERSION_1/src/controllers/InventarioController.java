@@ -9,12 +9,15 @@ import javax.swing.table.DefaultTableModel;
 import models.Producto;
 import models.InventarioDAO;
 import views.Inventario_Principal;
+import views.Menu_Principal;
+
 
 public class InventarioController implements ActionListener {
     DefaultTableModel modeloTabla=new DefaultTableModel();
     Inventario_Principal vista=new Inventario_Principal();
+    Menu_Principal menu=new Menu_Principal();
     InventarioDAO dao=new InventarioDAO();
-    
+
     public InventarioController(Inventario_Principal principal){
         this.vista=principal;
         this.vista.btnListar.addActionListener(this);
@@ -27,7 +30,7 @@ public class InventarioController implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
-       if(e.getSource()==vista.btnListar){
+        if(e.getSource()==vista.btnListar){
             limpiarTabla();
             listar(vista.tbProductos);
         }
@@ -42,30 +45,30 @@ public class InventarioController implements ActionListener {
             vista.btnEliminar.setEnabled(false);
             vista.btnActualizar.setEnabled(true);
             int fila=vista.tbProductos.getSelectedRow();
-            if(fila==-1){
-                JOptionPane.showMessageDialog(vista, "Debe selecionar una fila...");
-            }else{
-                int id= Integer.parseInt((String)vista.tbProductos.getValueAt(fila, 0).toString());
-                String codigo= (String)vista.tbProductos.getValueAt(fila,1);
-                String especie=(String)vista.tbProductos.getValueAt(fila,2);
-                String cantidad=(String)vista.tbProductos.getValueAt(fila,3);
-                String tipo=(String)vista.tbProductos.getValueAt(fila, 4);
-                String troza=(String)vista.tbProductos.getValueAt(fila, 5);
-                String procedencia=(String)vista.tbProductos.getValueAt(fila, 6);
-                String proveedor=(String)vista.tbProductos.getValueAt(fila, 7);
-                String transportista=(String)vista.tbProductos.getValueAt(fila, 8);
+        if(fila==-1){
+            JOptionPane.showMessageDialog(vista, "Debe selecionar una fila...");
+        }else{
+            int id= Integer.parseInt((String)vista.tbProductos.getValueAt(fila, 0).toString());
+            String codigo= (String)vista.tbProductos.getValueAt(fila,1);
+            String especie=(String)vista.tbProductos.getValueAt(fila,2);
+            String cantidad=(String)vista.tbProductos.getValueAt(fila,3);
+            String tipo=(String)vista.tbProductos.getValueAt(fila, 4);
+            String troza=(String)vista.tbProductos.getValueAt(fila, 5);
+            String procedencia=(String)vista.tbProductos.getValueAt(fila, 6);
+            String proveedor=(String)vista.tbProductos.getValueAt(fila, 7);
+            String transportista=(String)vista.tbProductos.getValueAt(fila, 8);
                 
-                vista.txtID.setText(id+"");
-                vista.txtCodigo.setText(codigo);
-                vista.txtEspecie.setText(especie);
-                vista.txtCantidad.setText(cantidad);
-                vista.txtTipo.setText(tipo);
-                vista.txtTroza.setText(troza);
-                vista.txtProcedencia.setText(procedencia);
-                vista.txtProveedor.setText(proveedor);
-                vista.txtTransportista.setText(transportista);
+            vista.txtID.setText(id+"");
+            vista.txtCodigo.setText(codigo);
+            vista.txtEspecie.setText(especie);
+            vista.txtCantidad.setText(cantidad);
+            vista.txtTipo.setText(tipo);
+            vista.txtTroza.setText(troza);
+            vista.txtProcedencia.setText(procedencia);
+            vista.txtProveedor.setText(proveedor);
+            vista.txtTransportista.setText(transportista);
             }
-        }
+        } 
         if(e.getSource()==vista.btnActualizar){
             actualizar();
             limpiarTabla();
@@ -84,7 +87,7 @@ public class InventarioController implements ActionListener {
             vista.btnAgregar.setEnabled(true); 
             vista.btnActualizar.setEnabled(false);
             vista.btnEliminar.setEnabled(true);    
-    }
+        }
     }
     
     private void eliminar(){
@@ -97,7 +100,6 @@ public class InventarioController implements ActionListener {
             JOptionPane.showMessageDialog(vista, "Producto eliminada");
         }
     } 
-    
     private void actualizar(){
         int id= Integer.parseInt(vista.txtID.getText());
         String codigo= vista.txtCodigo.getText();
@@ -121,9 +123,8 @@ public class InventarioController implements ActionListener {
              }
         } 
     }
-    
-    private void agregar(){
-        
+
+    private void agregar(){    
         String codigo= vista.txtCodigo.getText();
         String especie= vista.txtEspecie.getText();
         String cantidad= vista.txtCantidad.getText();
@@ -144,6 +145,8 @@ public class InventarioController implements ActionListener {
         }
         }
     }
+    
+   
      private void listar(JTable tabla){
         this.modeloTabla=(DefaultTableModel)tabla.getModel();
         List<Producto>listaInventario=this.dao.listar();
@@ -162,14 +165,13 @@ public class InventarioController implements ActionListener {
         }
         vista.tbProductos.setModel(modeloTabla);
     }
-     
     private void limpiarTabla(){
         for(int i=0;i<vista.tbProductos.getRowCount();i++){
             modeloTabla.removeRow(i);
             i=i-1;
         }
     }
-    
+
     private void limpiarCajas(){
         vista.txtID.setText("");
         vista.txtCodigo.setText("");
@@ -181,7 +183,6 @@ public class InventarioController implements ActionListener {
         vista.txtProveedor.setText("");
         vista.txtTransportista.setText("");
     }
-    
 }
  
 

@@ -1,32 +1,30 @@
 package models;
 
-import java.util.Date;
-
 public class Usuario {
     private int id;
-    private String nombre;
-    private String apellido;
+    private String nombres;
+    private String apellidos;
     private String dni;
-    private Date registro;
-    private String tipo;  
+    private String contraseña;
+    private String tipo; 
 
     public Usuario() {
     }
 
-    public Usuario(int id, String nombre, String apellido, String dni, Date registro, String tipo) {
+    public Usuario(int id, String nombres, String apellidos, String dni, String contraseña, String tipo) {
         this.id = id;
-        this.nombre = nombre;
-        this.apellido = apellido;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
         this.dni = dni;
-        this.registro = registro;
+        this.contraseña = contraseña;
         this.tipo = tipo;
     }
 
-    public Usuario(String nombre, String apellido, String dni, Date registro, String tipo) {
-        this.nombre = nombre;
-        this.apellido = apellido;
+    public Usuario(String nombres, String apellidos, String dni, String contraseña, String tipo) {
+        this.nombres = nombres;
+        this.apellidos = apellidos;
         this.dni = dni;
-        this.registro = registro;
+        this.contraseña = contraseña;
         this.tipo = tipo;
     }
 
@@ -38,20 +36,20 @@ public class Usuario {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombres() {
+        return nombres;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getApellidos() {
+        return apellidos;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 
     public String getDni() {
@@ -62,12 +60,12 @@ public class Usuario {
         this.dni = dni;
     }
 
-    public Date getRegistro() {
-        return registro;
+    public String getContraseña() {
+        return contraseña;
     }
 
-    public void setRegistro(Date registro) {
-        this.registro = registro;
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
 
     public String getTipo() {
@@ -77,7 +75,6 @@ public class Usuario {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-    
     
     
 }

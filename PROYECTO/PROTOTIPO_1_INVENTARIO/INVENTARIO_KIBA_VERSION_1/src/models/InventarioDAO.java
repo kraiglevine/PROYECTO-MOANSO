@@ -39,6 +39,30 @@ public class InventarioDAO {
         return listarProducto;
     }
     
+    //INTERFAZ USUARIO
+    public List<Usuario>listarUsuario(){
+        List<Usuario>listarUsuario=new ArrayList<>();
+        String sql="SELECT * FROM usuario";
+        try {
+            con=conectar.getConnection();
+            ps=con.prepareStatement(sql);
+            rs=ps.executeQuery();
+            while(rs.next()){
+                Usuario usr=new Usuario();
+                usr.setId(rs.getInt(1));
+                usr.setNombres(rs.getString(2));
+                usr.setApellidos(rs.getString(3));
+                usr.setDni(rs.getString(4));
+                usr.setContraseña(rs.getString(5));
+                usr.setTipo(rs.getString(6));
+                listarUsuario.add(usr);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return listarUsuario;
+    }
+    
     public int agregar (Producto p){
         String sql="INSERT INTO producto VALUES(null,?,?,?,?,?,?,?,?)";
         try {
@@ -58,6 +82,25 @@ public class InventarioDAO {
         }
         return 1;   
     }
+    
+    //INTERFAZ USUARIO
+    public int agregarUsuario (Usuario u){
+        String sql="INSERT INTO usuario VALUES(null,?,?,?,?,?)";
+        try {
+            con=conectar.getConnection();
+            ps=con.prepareStatement(sql);
+            ps.setString(1, u.getNombres());
+            ps.setString(2, u.getApellidos());
+            ps.setString(3, u.getDni());
+            ps.setString(4, u.getContraseña());
+            ps.setInt(5,Integer.valueOf(u.getTipo()));
+            ps.executeUpdate();
+        } catch (Exception e) {
+            System.out.println("Error al agregar..."+e.getMessage());
+        }
+        return 1;   
+    }
+    //INTERFAZ USUARIO
     
     public int actualizar(Producto p){
         int r=0;
@@ -85,6 +128,30 @@ public class InventarioDAO {
         }
         return r;
     }
+    public int actualizarUsuario(Usuario u){
+        int r=0;
+        String sql="UPDATE producto SET usr_nombres=?,usr_apellidos=?,usr_dni=?,usr_contraseña=?,usr_tipo=? WHERE usr_id=?";
+        try {
+            con= conectar.getConnection();
+            ps=con.prepareStatement(sql);
+            ps.setString(1, u.getNombres());
+            ps.setString(2, u.getApellidos());
+            ps.setString(3, u.getDni());
+            ps.setString(4, u.getContraseña());
+            ps.setInt(5,Integer.valueOf(u.getTipo()));
+            ps.setInt(6, u.getId());
+            r=ps.executeUpdate();
+            if(r==1){
+                return 1;
+            }else{
+                return 0;
+            }    
+        } catch (Exception e) {
+            System.out.println("Error al actualizar!"+e.getMessage());
+        }
+        return r;
+    }
+    
     public void eliminar(int id){
         String sql="DELETE FROM producto WHERE pro_id = "+id;
         try {
@@ -95,4 +162,16 @@ public class InventarioDAO {
             System.err.println("Error eliminar"+e.getMessage());
         } 
     }
+    
+    public void eliminarUsuario(int id){
+        String sql="DELETE FROM usuario WHERE usr_id = "+id;
+        try {
+            con=conectar.getConnection();
+            ps=con.prepareStatement(sql);
+            ps.executeUpdate();   
+        } catch (Exception e) {
+            System.err.println("Error eliminar"+e.getMessage());
+        } 
+    }
+    
 }

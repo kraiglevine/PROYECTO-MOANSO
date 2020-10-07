@@ -1,16 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package views;
 
 import controllers.InventarioController;
 
-/**
- *
- * @author Kraig
- */
+
 public class Inventario_Principal extends javax.swing.JFrame {
 
     /**
@@ -18,6 +11,7 @@ public class Inventario_Principal extends javax.swing.JFrame {
      */
     public Inventario_Principal() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -96,22 +90,22 @@ public class Inventario_Principal extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "REGISTRO DE PRODUCTOS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
 
-        btnListar.setBackground(new java.awt.Color(102, 102, 102));
+        btnListar.setBackground(new java.awt.Color(51, 51, 51));
         btnListar.setForeground(new java.awt.Color(255, 255, 255));
         btnListar.setText("LISTAR");
-        btnListar.setContentAreaFilled(false);
+        btnListar.setBorderPainted(false);
         btnListar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        btnAgregar.setBackground(new java.awt.Color(102, 102, 102));
+        btnAgregar.setBackground(new java.awt.Color(51, 51, 51));
         btnAgregar.setForeground(new java.awt.Color(255, 255, 255));
         btnAgregar.setText("AGREGAR");
-        btnAgregar.setContentAreaFilled(false);
+        btnAgregar.setBorderPainted(false);
         btnAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        btnEliminar.setBackground(new java.awt.Color(102, 102, 102));
+        btnEliminar.setBackground(new java.awt.Color(51, 51, 51));
         btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminar.setText("ELIMINAR");
-        btnEliminar.setContentAreaFilled(false);
+        btnEliminar.setBorderPainted(false);
         btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -125,7 +119,7 @@ public class Inventario_Principal extends javax.swing.JFrame {
                 .addComponent(btnAgregar)
                 .addGap(18, 18, 18)
                 .addComponent(btnEliminar)
-                .addContainerGap(558, Short.MAX_VALUE))
+                .addContainerGap(648, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,7 +132,7 @@ public class Inventario_Principal extends javax.swing.JFrame {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, -1));
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "INGRESO DE DATOS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -173,18 +167,20 @@ public class Inventario_Principal extends javax.swing.JFrame {
             }
         });
 
+        btnEditar.setBackground(new java.awt.Color(51, 51, 51));
         btnEditar.setForeground(new java.awt.Color(255, 255, 255));
         btnEditar.setText("EDITAR");
-        btnEditar.setContentAreaFilled(false);
+        btnEditar.setBorderPainted(false);
 
+        btnNuevo.setBackground(new java.awt.Color(51, 51, 51));
         btnNuevo.setForeground(new java.awt.Color(255, 255, 255));
         btnNuevo.setText("NUEVO");
-        btnNuevo.setContentAreaFilled(false);
+        btnNuevo.setBorderPainted(false);
 
-        btnActualizar.setBackground(new java.awt.Color(255, 255, 255));
+        btnActualizar.setBackground(new java.awt.Color(51, 51, 51));
         btnActualizar.setForeground(new java.awt.Color(255, 255, 255));
         btnActualizar.setText("ACTUALIZAR");
-        btnActualizar.setContentAreaFilled(false);
+        btnActualizar.setBorderPainted(false);
         btnActualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         txtID.setEnabled(false);
@@ -212,7 +208,7 @@ public class Inventario_Principal extends javax.swing.JFrame {
                             .addComponent(txtCodigo, javax.swing.GroupLayout.Alignment.LEADING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                        .addGap(27, 27, 27)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9)
                             .addComponent(jLabel3)
@@ -220,18 +216,17 @@ public class Inventario_Principal extends javax.swing.JFrame {
                             .addComponent(jLabel7))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtProcedencia, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                            .addComponent(txtProcedencia, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtTipo, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtEspecie, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtTransportista))
-                        .addGap(66, 66, 66))
+                            .addComponent(txtTransportista, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(btnEditar)
                         .addGap(18, 18, 18)
                         .addComponent(btnNuevo)
                         .addGap(18, 18, 18)
-                        .addComponent(btnActualizar)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(btnActualizar)))
+                .addContainerGap(199, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -279,7 +274,7 @@ public class Inventario_Principal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 850, 230));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 940, 230));
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "STOCK DE PRODUCTOS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -310,13 +305,20 @@ public class Inventario_Principal extends javax.swing.JFrame {
         jScrollPane2.setViewportView(tbProductos);
         if (tbProductos.getColumnModel().getColumnCount() > 0) {
             tbProductos.getColumnModel().getColumn(1).setResizable(false);
+            tbProductos.getColumnModel().getColumn(2).setResizable(false);
+            tbProductos.getColumnModel().getColumn(3).setResizable(false);
+            tbProductos.getColumnModel().getColumn(4).setResizable(false);
+            tbProductos.getColumnModel().getColumn(5).setResizable(false);
+            tbProductos.getColumnModel().getColumn(6).setResizable(false);
+            tbProductos.getColumnModel().getColumn(7).setResizable(false);
+            tbProductos.getColumnModel().getColumn(8).setResizable(false);
         }
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 860, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 930, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -325,7 +327,7 @@ public class Inventario_Principal extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 870, 180));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 940, 180));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -342,6 +344,7 @@ public class Inventario_Principal extends javax.swing.JFrame {
         InventarioController controlador=new InventarioController(vista);
         vista.setVisible(true);
         vista.setLocationRelativeTo(vista); 
+        vista.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
