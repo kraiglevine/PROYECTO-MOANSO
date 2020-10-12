@@ -9,13 +9,13 @@ import javax.swing.table.DefaultTableModel;
 import models.Producto;
 import models.InventarioDAO;
 import views.Inventario_Principal;
-import views.Menu_Principal;
+import views.Menu_Admin;
 
 
 public class InventarioController implements ActionListener {
     DefaultTableModel modeloTabla=new DefaultTableModel();
     Inventario_Principal vista=new Inventario_Principal();
-    Menu_Principal menu=new Menu_Principal();
+    Menu_Admin menu=new Menu_Admin();
     InventarioDAO dao=new InventarioDAO();
 
     public InventarioController(Inventario_Principal principal){

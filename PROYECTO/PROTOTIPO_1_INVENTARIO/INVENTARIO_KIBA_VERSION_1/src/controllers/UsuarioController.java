@@ -81,7 +81,6 @@ public class UsuarioController implements ActionListener {
         }
     }
     
-  
      private void eliminarUsuario(){
         int fila =vista2.tbUsuarios.getSelectedRow();
         if(fila==-1){
@@ -98,9 +97,9 @@ public class UsuarioController implements ActionListener {
          String apellidos=(String)vista2.txtApellidos.getText();
          String dni=(String)vista2.txtDNI.getText();
          String contraseña=(String)vista2.txtContraseña.getText();
-         String tipo=(String)vista2.txtTipo.getText();
+         String tipo= (String)vista2.txtTipo.getText();
         
-        if(nombres.equals("")||apellidos.equals("")||dni.equals("")||contraseña.equals("")||tipo.equals("")){
+        if(nombres.equals("")||apellidos.equals("")||dni.equals("")||contraseña.equals("")){
             JOptionPane.showMessageDialog(vista2, "Debe llenar todos los campos");
         }else{
              Usuario inventario=new Usuario(nombres, apellidos, dni, contraseña, tipo);
@@ -117,12 +116,12 @@ public class UsuarioController implements ActionListener {
         String apellidos=(String)vista2.txtApellidos.getText();
         String dni=(String)vista2.txtDNI.getText();
         String contraseña=(String)vista2.txtContraseña.getText();
-        String tipo=(String)vista2.txtTipo.getText();
-        if(nombres.equals("")||apellidos.equals("")||dni.equals("")||contraseña.equals("")||tipo.equals("")){
+        String tipo= (String)vista2.txtTipo.getText();
+        if(nombres.equals("")||apellidos.equals("")||dni.equals("")||contraseña.equals("")){
             JOptionPane.showMessageDialog(vista2, "Debe llenar todos los campos");
         }else{
             
-            Usuario inventario=new Usuario(nombres, apellidos, dni, contraseña, tipo);
+            Usuario inventario=new Usuario(nombres, apellidos, dni, contraseña,tipo);
             int r= this.dao.agregarUsuario(inventario);
         if(r==1){
             JOptionPane.showMessageDialog(vista2, "Producto agregado con exito...");

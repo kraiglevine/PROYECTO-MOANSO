@@ -5,19 +5,19 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
- 
+
 
 public class InventarioDAO {
     Conexion conectar=new Conexion();
     Connection con;
     PreparedStatement ps;
     ResultSet rs;
-    
+
     public List<Producto>listar(){
         List<Producto>listarProducto=new ArrayList<>();
         String sql="SELECT * FROM producto";
         try {
-            con=conectar.getConnection();
+            con=Conexion.getConnection();
             ps=con.prepareStatement(sql);
             rs=ps.executeQuery();
             while(rs.next()){
@@ -44,7 +44,7 @@ public class InventarioDAO {
         List<Usuario>listarUsuario=new ArrayList<>();
         String sql="SELECT * FROM usuario";
         try {
-            con=conectar.getConnection();
+            con=Conexion.getConnection();
             ps=con.prepareStatement(sql);
             rs=ps.executeQuery();
             while(rs.next()){
@@ -66,7 +66,7 @@ public class InventarioDAO {
     public int agregar (Producto p){
         String sql="INSERT INTO producto VALUES(null,?,?,?,?,?,?,?,?)";
         try {
-            con=conectar.getConnection();
+            con=Conexion.getConnection();
             ps=con.prepareStatement(sql);
             ps.setString(1, p.getCodigo());
             ps.setString(2, p.getEspecie());
@@ -87,13 +87,13 @@ public class InventarioDAO {
     public int agregarUsuario (Usuario u){
         String sql="INSERT INTO usuario VALUES(null,?,?,?,?,?)";
         try {
-            con=conectar.getConnection();
+            con=Conexion.getConnection();
             ps=con.prepareStatement(sql);
             ps.setString(1, u.getNombres());
             ps.setString(2, u.getApellidos());
             ps.setString(3, u.getDni());
             ps.setString(4, u.getContraseña());
-            ps.setInt(5,Integer.valueOf(u.getTipo()));
+            ps.setString(5,u.getTipo());
             ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error al agregar..."+e.getMessage());
@@ -106,7 +106,7 @@ public class InventarioDAO {
         int r=0;
         String sql="UPDATE producto SET pro_codigo=?,pro_especie=?,pro_cantidad=?,pro_tipo_madera=?,pro_tipo_troza=?,pro_procedencia=?,pro_proveedor=?,pro_tranportista=? WHERE pro_id=?";
         try {
-            con= conectar.getConnection();
+            con= Conexion.getConnection();
             ps=con.prepareStatement(sql);
             ps.setString(1,p.getCodigo());
             ps.setString(2,p.getEspecie());
@@ -132,13 +132,13 @@ public class InventarioDAO {
         int r=0;
         String sql="UPDATE producto SET usr_nombres=?,usr_apellidos=?,usr_dni=?,usr_contraseña=?,usr_tipo=? WHERE usr_id=?";
         try {
-            con= conectar.getConnection();
+            con= Conexion.getConnection();
             ps=con.prepareStatement(sql);
             ps.setString(1, u.getNombres());
             ps.setString(2, u.getApellidos());
             ps.setString(3, u.getDni());
             ps.setString(4, u.getContraseña());
-            ps.setInt(5,Integer.valueOf(u.getTipo()));
+            ps.setString(5,u.getTipo());
             ps.setInt(6, u.getId());
             r=ps.executeUpdate();
             if(r==1){
@@ -155,7 +155,7 @@ public class InventarioDAO {
     public void eliminar(int id){
         String sql="DELETE FROM producto WHERE pro_id = "+id;
         try {
-            con=conectar.getConnection();
+            con=Conexion.getConnection();
             ps=con.prepareStatement(sql);
             ps.executeUpdate();   
         } catch (Exception e) {
@@ -166,12 +166,12 @@ public class InventarioDAO {
     public void eliminarUsuario(int id){
         String sql="DELETE FROM usuario WHERE usr_id = "+id;
         try {
-            con=conectar.getConnection();
+            con=Conexion.getConnection();
             ps=con.prepareStatement(sql);
             ps.executeUpdate();   
         } catch (Exception e) {
             System.err.println("Error eliminar"+e.getMessage());
         } 
     }
-    
+
 }

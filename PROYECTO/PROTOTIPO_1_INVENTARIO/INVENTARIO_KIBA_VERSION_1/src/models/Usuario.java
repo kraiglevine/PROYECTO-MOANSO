@@ -10,6 +10,8 @@ public class Usuario {
 
     public Usuario() {
     }
+    
+    
 
     public Usuario(int id, String nombres, String apellidos, String dni, String contraseña, String tipo) {
         this.id = id;
@@ -75,8 +77,6 @@ public class Usuario {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-    
+
     
 }
-
-
