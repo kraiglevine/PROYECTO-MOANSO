@@ -88,7 +88,7 @@ public class UsuarioController implements ActionListener {
         }else{
             int id=Integer.parseInt((String)vista2.tbUsuarios.getValueAt(fila,0).toString());
             this.dao.eliminarUsuario(id);
-            JOptionPane.showMessageDialog(vista2, "Producto eliminado");
+            JOptionPane.showMessageDialog(vista2, "Usuario eliminado");
         }
     } 
 
@@ -105,9 +105,9 @@ public class UsuarioController implements ActionListener {
              Usuario inventario=new Usuario(nombres, apellidos, dni, contraseña, tipo);
              int r= this.dao.actualizarUsuario(inventario);
              if(r==1){
-                 JOptionPane.showMessageDialog(vista2, "Producto actualizado con exito...");
+                 JOptionPane.showMessageDialog(vista2, "Usuario actualizado con exito...");
              }else{
-                 JOptionPane.showMessageDialog(vista2, "Error al actualizar producto!!!");
+                 JOptionPane.showMessageDialog(vista2, "Error al actualizar usuario!!!");
              }
         } 
     }
@@ -124,9 +124,9 @@ public class UsuarioController implements ActionListener {
             Usuario inventario=new Usuario(nombres, apellidos, dni, contraseña,tipo);
             int r= this.dao.agregarUsuario(inventario);
         if(r==1){
-            JOptionPane.showMessageDialog(vista2, "Producto agregado con exito...");
+            JOptionPane.showMessageDialog(vista2, "Usuario agregado con exito...");
         }else{
-            JOptionPane.showMessageDialog(vista2, "Error al agregar producto!!!");
+            JOptionPane.showMessageDialog(vista2, "Error al agregar Usuario!!!");
         }
         } 
     }
