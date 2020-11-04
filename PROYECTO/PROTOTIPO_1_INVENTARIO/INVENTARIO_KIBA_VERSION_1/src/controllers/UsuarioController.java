@@ -93,11 +93,11 @@ public class UsuarioController implements ActionListener {
     } 
 
      private void actualizarUsuario(){
-         String nombres= (String)vista2.txtNombres.getText();
-         String apellidos=(String)vista2.txtApellidos.getText();
-         String dni=(String)vista2.txtDNI.getText();
-         String contraseña=(String)vista2.txtContraseña.getText();
-         String tipo= (String)vista2.txtTipo.getText();
+         String nombres= vista2.txtNombres.getText();
+         String apellidos=vista2.txtApellidos.getText();
+         String dni=vista2.txtDNI.getText();
+         String contraseña=vista2.txtContraseña.getText();
+         String tipo= vista2.txtTipo.getText();
         
         if(nombres.equals("")||apellidos.equals("")||dni.equals("")||contraseña.equals("")){
             JOptionPane.showMessageDialog(vista2, "Debe llenar todos los campos");
@@ -112,11 +112,11 @@ public class UsuarioController implements ActionListener {
         } 
     }
     private void agregarUsuario(){
-        String nombres= (String)vista2.txtNombres.getText();
-        String apellidos=(String)vista2.txtApellidos.getText();
-        String dni=(String)vista2.txtDNI.getText();
-        String contraseña=(String)vista2.txtContraseña.getText();
-        String tipo= (String)vista2.txtTipo.getText();
+        String nombres= vista2.txtNombres.getText();
+        String apellidos= vista2.txtApellidos.getText();
+        String dni= vista2.txtDNI.getText();
+        String contraseña= vista2.txtContraseña.getText();
+        String tipo= vista2.txtTipo.getText();
         if(nombres.equals("")||apellidos.equals("")||dni.equals("")||contraseña.equals("")){
             JOptionPane.showMessageDialog(vista2, "Debe llenar todos los campos");
         }else{
@@ -130,6 +130,7 @@ public class UsuarioController implements ActionListener {
         }
         } 
     }
+    
     private void listarUsuario(JTable tabla){
         this.modeloTabla2=(DefaultTableModel)tabla.getModel();
         List<Usuario>listaInventario=this.dao.listarUsuario();

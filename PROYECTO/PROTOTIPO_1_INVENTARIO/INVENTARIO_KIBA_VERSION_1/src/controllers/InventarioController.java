@@ -6,17 +6,23 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import models.Cliente;
 import models.Producto;
 import models.InventarioDAO;
 import views.Inventario_Principal;
-import views.Menu_Admin;
+import views.Pedido_Principal;
 
 
 public class InventarioController implements ActionListener {
     DefaultTableModel modeloTabla=new DefaultTableModel();
     Inventario_Principal vista=new Inventario_Principal();
-    Menu_Admin menu=new Menu_Admin();
+    Pedido_Principal view=new Pedido_Principal();
     InventarioDAO dao=new InventarioDAO();
+    
+    public InventarioController (Pedido_Principal pedido){
+        this.view=pedido;
+        this.view.btnSearchProduct.addActionListener(this);
+    }
 
     public InventarioController(Inventario_Principal principal){
         this.vista=principal;
@@ -30,6 +36,14 @@ public class InventarioController implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
+        if(e.getSource()== view.btnSearchProduct){
+            limpiarSearch();
+            listarProducto(view.tbPedido);
+        }
+        if(e.getSource()== view.btnSearchClient){
+            limpiarSearch();
+            listarClientes(view.tbPedido);  
+        }
         if(e.getSource()==vista.btnListar){
             limpiarTabla();
             listar(vista.tbProductos);
@@ -100,6 +114,7 @@ public class InventarioController implements ActionListener {
             JOptionPane.showMessageDialog(vista, "Producto eliminada");
         }
     } 
+    
     private void actualizar(){
         int id= Integer.parseInt(vista.txtID.getText());
         String codigo= vista.txtCodigo.getText();
@@ -146,8 +161,7 @@ public class InventarioController implements ActionListener {
         }
     }
     
-   
-     private void listar(JTable tabla){
+    private void listar(JTable tabla){
         this.modeloTabla=(DefaultTableModel)tabla.getModel();
         List<Producto>listaInventario=this.dao.listar();
         Object[] objeto=new Object[9];
@@ -165,8 +179,44 @@ public class InventarioController implements ActionListener {
         }
         vista.tbProductos.setModel(modeloTabla);
     }
+     
+    private void listarProducto(JTable tabla){
+        this.modeloTabla=(DefaultTableModel)tabla.getModel();
+        List<Producto>listaInventario=this.dao.listar();
+        Object[] objeto=new Object[4];
+        for(int i=0;i<listaInventario.size();i++){
+            objeto[0]=listaInventario.get(i).getId();
+            objeto[1]=listaInventario.get(i).getCodigo();
+            objeto[2]=listaInventario.get(i).getEspecie();
+            objeto[3]=listaInventario.get(i).getCantidad();
+            modeloTabla.addRow(objeto);  
+        }
+        view.tbPedido.setModel(modeloTabla);
+    }
+    
+    private void listarClientes(JTable tabla){
+        this.modeloTabla=(DefaultTableModel)tabla.getModel();
+        List<Cliente>listar=this.dao.listarCliente();
+        Object[] objeto=new Object[4];
+        for(int i=0;i<listar.size();i++){
+            objeto[0]=listar.get(i).getId();
+            objeto[1]=listar.get(i).getNombre();
+            objeto[2]=listar.get(i).getApellido();
+            objeto[3]=listar.get(i).getDni();
+            modeloTabla.addRow(objeto);  
+        }
+        view.tbPedido.setModel(modeloTabla);
+    }
+
     private void limpiarTabla(){
         for(int i=0;i<vista.tbProductos.getRowCount();i++){
+            modeloTabla.removeRow(i);
+            i=i-1;
+        }
+    }
+    
+    private void limpiarSearch(){
+        for(int i=0;i<view.tbPedido.getRowCount();i++){
             modeloTabla.removeRow(i);
             i=i-1;
         }

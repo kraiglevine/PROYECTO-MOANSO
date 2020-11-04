@@ -7,9 +7,9 @@ public class Conexion {
     static Connection con;
     
     public static Connection getConnection(){
-        String url= "jdbc:mysql://localhost:3306/sistema_kiba?serverTimezone=America/Lima";
+        String url= "jdbc:mysql://localhost:3306/inventario_kiba?serverTimezone=America/Lima";
         String user="root";
-        String pas= "";
+        String pas= "root";
         
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");

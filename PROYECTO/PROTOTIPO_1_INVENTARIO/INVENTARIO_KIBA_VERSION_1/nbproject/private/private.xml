@@ -3,8 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/PROYECTO%20MOANSO/PROYECTO/PROTOTIPO_1_INVENTARIO/INVENTARIO_KIBA_VERSION_1/src/controllers/UsuarioController.java</file>
-            <file>file:/D:/PROYECTO%20MOANSO/PROYECTO/PROTOTIPO_1_INVENTARIO/INVENTARIO_KIBA_VERSION_1/src/controllers/InventarioController.java</file>
+            <file>file:/D:/PROYECTO%20MOANSO/PROYECTO-MOANSO/PROYECTO/PROTOTIPO_1_INVENTARIO/INVENTARIO_KIBA_VERSION_1/src/views/Cliente_Principal.java</file>
+            <file>file:/D:/PROYECTO%20MOANSO/PROYECTO-MOANSO/PROYECTO/PROTOTIPO_1_INVENTARIO/INVENTARIO_KIBA_VERSION_1/src/views/Menu_Vendedor.java</file>
+            <file>file:/D:/PROYECTO%20MOANSO/PROYECTO-MOANSO/PROYECTO/PROTOTIPO_1_INVENTARIO/INVENTARIO_KIBA_VERSION_1/src/models/InventarioDAO.java</file>
+            <file>file:/D:/PROYECTO%20MOANSO/PROYECTO-MOANSO/PROYECTO/PROTOTIPO_1_INVENTARIO/INVENTARIO_KIBA_VERSION_1/src/views/Menu_Admin.java</file>
+            <file>file:/D:/PROYECTO%20MOANSO/PROYECTO-MOANSO/PROYECTO/PROTOTIPO_1_INVENTARIO/INVENTARIO_KIBA_VERSION_1/src/controllers/InventarioController.java</file>
         </group>
     </open-files>
 </project-private>

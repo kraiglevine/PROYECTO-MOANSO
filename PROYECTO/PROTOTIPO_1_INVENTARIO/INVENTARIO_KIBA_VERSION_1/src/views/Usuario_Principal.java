@@ -52,26 +52,27 @@ public class Usuario_Principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "USUARIOS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "USUARIOS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Cambria", 1, 14), new java.awt.Color(0, 0, 0))); // NOI18N
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
-        btnListar.setBackground(new java.awt.Color(51, 51, 51));
+        btnListar.setBackground(new java.awt.Color(0, 0, 255));
         btnListar.setForeground(new java.awt.Color(255, 255, 255));
         btnListar.setText("LISTAR");
 
-        btnRegistrar.setBackground(new java.awt.Color(51, 51, 51));
+        btnRegistrar.setBackground(new java.awt.Color(0, 0, 255));
         btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrar.setText("REGISTRAR");
 
-        btnNuevo.setBackground(new java.awt.Color(51, 51, 51));
+        btnNuevo.setBackground(new java.awt.Color(0, 0, 255));
         btnNuevo.setForeground(new java.awt.Color(255, 255, 255));
         btnNuevo.setText("NUEVO");
 
-        btnEliminar.setBackground(new java.awt.Color(51, 51, 51));
+        btnEliminar.setBackground(new java.awt.Color(0, 0, 255));
         btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminar.setText("ELIMINAR");
 
-        btnEditar.setBackground(new java.awt.Color(51, 51, 51));
+        btnEditar.setBackground(new java.awt.Color(0, 0, 255));
         btnEditar.setForeground(new java.awt.Color(255, 255, 255));
         btnEditar.setText("EDITAR");
 
@@ -117,7 +118,7 @@ public class Usuario_Principal extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tbUsuarios);
 
-        btnActualizar.setBackground(new java.awt.Color(51, 51, 51));
+        btnActualizar.setBackground(new java.awt.Color(0, 0, 255));
         btnActualizar.setForeground(new java.awt.Color(255, 255, 255));
         btnActualizar.setText("ACTUALIZAR");
 
@@ -210,7 +211,7 @@ public class Usuario_Principal extends javax.swing.JFrame {
                     .addComponent(btnEliminar)
                     .addComponent(btnEditar))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

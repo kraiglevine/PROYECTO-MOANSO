@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
 --
 -- Host: localhost    Database: inventario_kiba
 -- ------------------------------------------------------
--- Server version	8.0.18
+-- Server version	8.0.22
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -23,17 +23,14 @@ DROP TABLE IF EXISTS `usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuario` (
-  `usr_id` int(11) NOT NULL,
+  `usr_id` int NOT NULL AUTO_INCREMENT,
   `usr_nombres` varchar(45) NOT NULL,
   `usr_apellidos` varchar(45) NOT NULL,
   `usr_dni` varchar(8) NOT NULL,
-  `usr_registro` date NOT NULL,
+  `usr_contraseña` varchar(15) NOT NULL,
   `usr_tipo` varchar(30) NOT NULL,
-  `inv_id` int(11) NOT NULL,
-  PRIMARY KEY (`usr_id`),
-  KEY `fk_Usuario_Inventario1_idx` (`inv_id`),
-  CONSTRAINT `fk_Usuario_Inventario1` FOREIGN KEY (`inv_id`) REFERENCES `inventario` (`inv_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`usr_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,6 +39,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` VALUES (1,'kenko','garcia','12345678','123','vendedor'),(2,'kenko','garcia','123','123','vendedor');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-28 23:39:05
+-- Dump completed on 2020-11-03 20:31:11
