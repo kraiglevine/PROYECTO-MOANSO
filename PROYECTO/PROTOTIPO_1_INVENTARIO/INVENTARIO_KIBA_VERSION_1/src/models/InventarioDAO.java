@@ -110,7 +110,7 @@ public class InventarioDAO {
     
     public List<Pedido>listarPedido(){
         List<Pedido>listarPedido=new ArrayList<>();
-        String sql="SELECT * FROM cliente";
+        String sql="SELECT * FROM pedido";
         try {
             con=Conexion.getConnection();
             ps=con.prepareStatement(sql);

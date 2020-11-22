@@ -53,7 +53,8 @@ public class ProveedorController implements ActionListener{
             String direccion=(String)vista3.tbProveedores.getValueAt(fila,3);
             String correo=(String)vista3.tbProveedores.getValueAt(fila, 4);
             String telefono=(String)vista3.tbProveedores.getValueAt(fila, 5);
-
+            
+            vista3.txtId.setText(id+"");
             vista3.txtRazonSocial.setText(social);
             vista3.txtRUC.setText(ruc);
             vista3.txtDireccion.setText(direccion);
@@ -95,6 +96,7 @@ public class ProveedorController implements ActionListener{
     }
     
     public void actualizarProveedor(){
+        int id=Integer.parseInt(vista3.txtId.getText());
         String social= (String)vista3.txtRazonSocial.getText();
         String ruc=(String)vista3.txtRUC.getText();
         String direccion=(String)vista3.txtDireccion.getText();
@@ -104,7 +106,7 @@ public class ProveedorController implements ActionListener{
         if(social.equals("")||ruc.equals("")||direccion.equals("")||correo.equals("")||telefono.equals("")){
             JOptionPane.showMessageDialog(vista3, "Debe llenar todos los campos");    
         }else{
-             Proveedor proveedor=new Proveedor (social, ruc, direccion, correo, telefono);
+             Proveedor proveedor=new Proveedor (id,social, ruc, direccion, correo, telefono);
              int r= this.dao.actualizarProveedor(proveedor);
              if(r==1){
                  JOptionPane.showMessageDialog(vista3, "Proveedor actualizado con exito...");
@@ -150,11 +152,20 @@ public class ProveedorController implements ActionListener{
     }
     
     public void limpiarTablaProveedor(){
-        
+        for(int i=0;i<vista3.tbProveedores.getRowCount();i++){
+            modeloTabla3.removeRow(i);
+            i=i-1;
+        }
     }
     
     public void limpiarCajasProveedor(){
-        
+        vista3.txtId.setText("");
+        vista3.txtCelular.setText("");
+        vista3.txtCorreo.setText("");
+        vista3.txtDireccion.setText("");
+        vista3.txtId.setText("");
+        vista3.txtRUC.setText("");
+        vista3.txtRazonSocial.setText("");  
     }
 }
 

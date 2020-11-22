@@ -116,6 +116,11 @@ public class Pedido_Principal extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tbProducto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbProductoMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbProducto);
         if (tbProducto.getColumnModel().getColumnCount() > 0) {
             tbProducto.getColumnModel().getColumn(0).setResizable(false);
@@ -280,6 +285,11 @@ public class Pedido_Principal extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tbCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbClienteMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(tbCliente);
         if (tbCliente.getColumnModel().getColumnCount() > 0) {
             tbCliente.getColumnModel().getColumn(0).setResizable(false);
@@ -441,8 +451,21 @@ public class Pedido_Principal extends javax.swing.JFrame {
         String fecha;
         fecha=date.format(formatter);
         txtFecha.setText(fecha);
-        btnGenerarCodigo.setEnabled(false);
     }//GEN-LAST:event_btnGenerarCodigoActionPerformed
+
+    private void tbProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbProductoMouseClicked
+        DefaultTableModel model=(DefaultTableModel)tbProducto.getModel();
+        int selectedRowIndex=  tbProducto.getSelectedRow();
+        txtIdProducto.setText(model.getValueAt(selectedRowIndex, 0).toString());
+        txtCodProducto.setText(model.getValueAt(selectedRowIndex, 1).toString());
+    }//GEN-LAST:event_tbProductoMouseClicked
+
+    private void tbClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbClienteMouseClicked
+        DefaultTableModel model=(DefaultTableModel)tbCliente.getModel();
+        int selectedRowIndex= tbCliente.getSelectedRow();
+        txtIdCliente.setText(model.getValueAt(selectedRowIndex, 0).toString());
+        txtDniCliente.setText(model.getValueAt(selectedRowIndex, 1).toString());
+    }//GEN-LAST:event_tbClienteMouseClicked
 
     /**
      * @param args the command line arguments

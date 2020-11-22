@@ -52,7 +52,8 @@ public class UsuarioController implements ActionListener {
             String dni=(String)vista2.tbUsuarios.getValueAt(fila,3);
             String contraseña=(String)vista2.tbUsuarios.getValueAt(fila, 4);
             String tipo=(String)vista2.tbUsuarios.getValueAt(fila, 5);
-
+            
+            vista2.txtId.setText(id+"");
             vista2.txtNombres.setText(nombres);
             vista2.txtApellidos.setText(apellidos);
             vista2.txtDNI.setText(dni);
@@ -93,6 +94,7 @@ public class UsuarioController implements ActionListener {
     } 
 
      private void actualizarUsuario(){
+         int id=Integer.parseInt(vista2.txtId.getText());
          String nombres= vista2.txtNombres.getText();
          String apellidos=vista2.txtApellidos.getText();
          String dni=vista2.txtDNI.getText();
@@ -102,7 +104,7 @@ public class UsuarioController implements ActionListener {
         if(nombres.equals("")||apellidos.equals("")||dni.equals("")||contraseña.equals("")){
             JOptionPane.showMessageDialog(vista2, "Debe llenar todos los campos");
         }else{
-             Usuario inventario=new Usuario(nombres, apellidos, dni, contraseña, tipo);
+             Usuario inventario=new Usuario(id,nombres, apellidos, dni, contraseña, tipo);
              int r= this.dao.actualizarUsuario(inventario);
              if(r==1){
                  JOptionPane.showMessageDialog(vista2, "Usuario actualizado con exito...");
@@ -146,15 +148,14 @@ public class UsuarioController implements ActionListener {
         }
         vista2.tbUsuarios.setModel(modeloTabla2);
     }
-
     private void limpiarTablaUsuario(){
         for(int i=0;i<vista2.tbUsuarios.getRowCount();i++){
             modeloTabla2.removeRow(i);
             i=i-1;
         }
     }
-    
     private void limpiarCajasUsuario(){
+        vista2.txtId.setText("");
         vista2.txtNombres.setText("");
         vista2.txtApellidos.setText("");
         vista2.txtDNI.setText("");

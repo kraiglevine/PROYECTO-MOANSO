@@ -63,7 +63,7 @@ public class PedidoController implements ActionListener{
             vista5.txtIdCliente.setText(cliente+"");
             vista5.txtIdProducto.setText(producto+"");
             vista5.txtCantidad.setText(cantidad+"");
-            vista5.txtDniCliente.setText(fecha);
+            vista5.txtFecha.setText(fecha);
         }
         }
         if(e.getSource()==vista5.btnActualizar){
@@ -103,7 +103,7 @@ public class PedidoController implements ActionListener{
         int cliente= Integer.parseInt(vista5.txtIdCliente.getText());
         int producto=Integer.parseInt(vista5.txtIdProducto.getText());
         double cantidad= Double.parseDouble(vista5.txtCantidad.getText());
-        String fecha= vista5.txtDniCliente.getText();
+        String fecha= vista5.txtFecha.getText();
         
         if(codigo.equals("")||cliente<=0||producto<=0||cantidad<=0||fecha.equals("")){
             JOptionPane.showMessageDialog(vista5, "Debe llenar todos los campos");
@@ -123,7 +123,7 @@ public class PedidoController implements ActionListener{
         int cliente= Integer.parseInt(vista5.txtIdCliente.getText());
         int producto=Integer.parseInt(vista5.txtIdProducto.getText());
         double cantidad= Double.parseDouble(vista5.txtCantidad.getText());
-        String fecha= vista5.txtDniCliente.getText();
+        String fecha= vista5.txtFecha.getText();
         if(codigo.equals("")||cliente<=0||producto<=0||cantidad<=0||fecha.equals("")){
             JOptionPane.showMessageDialog(vista5, "Debe llenar todos los campos");
         }else{
