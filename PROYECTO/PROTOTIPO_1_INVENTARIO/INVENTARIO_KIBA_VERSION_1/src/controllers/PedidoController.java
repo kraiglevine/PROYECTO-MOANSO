@@ -59,6 +59,7 @@ public class PedidoController implements ActionListener{
             double cantidad= Double.parseDouble((String)vista5.tbPedido.getValueAt(fila, 4).toString());
             String fecha= (String)vista5.tbPedido.getValueAt(fila, 5);
             
+            vista5.txtId.setText(id+"");
             vista5.txtCod.setText(codigo);
             vista5.txtIdCliente.setText(cliente+"");
             vista5.txtIdProducto.setText(producto+"");
@@ -99,6 +100,7 @@ public class PedidoController implements ActionListener{
     } 
 
     private void actualizarPedido(){
+        int id =Integer.parseInt(vista5.txtId.getText());
         String codigo= vista5.txtCod.getText();
         int cliente= Integer.parseInt(vista5.txtIdCliente.getText());
         int producto=Integer.parseInt(vista5.txtIdProducto.getText());
@@ -108,7 +110,7 @@ public class PedidoController implements ActionListener{
         if(codigo.equals("")||cliente<=0||producto<=0||cantidad<=0||fecha.equals("")){
             JOptionPane.showMessageDialog(vista5, "Debe llenar todos los campos");
         }else{
-             Pedido inventario=new Pedido(codigo, cliente, producto, cantidad, fecha);
+             Pedido inventario=new Pedido(id,codigo, cliente, producto, cantidad, fecha);
              int r= this.dao.actualizarPedido(inventario);
              if(r==1){
                  JOptionPane.showMessageDialog(vista5, "Cliente actualizado con exito...");

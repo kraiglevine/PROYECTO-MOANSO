@@ -47,44 +47,40 @@ public class Cliente_Principal extends javax.swing.JFrame {
         txtCorreo = new javax.swing.JTextField();
         txtCelular = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
+        txtId = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "CLIENTES", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 153, 0))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CLIENTES", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 153, 0))); // NOI18N
 
         btnListar.setBackground(new java.awt.Color(255, 153, 0));
-        btnListar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnListar.setForeground(new java.awt.Color(255, 255, 255));
         btnListar.setText("LISTAR");
 
         btnRegistrar.setBackground(new java.awt.Color(255, 153, 0));
-        btnRegistrar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrar.setText("REGISTRAR");
 
         btnNuevo.setBackground(new java.awt.Color(255, 153, 0));
-        btnNuevo.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnNuevo.setForeground(new java.awt.Color(255, 255, 255));
         btnNuevo.setText("NUEVO");
 
         btnEliminar.setBackground(new java.awt.Color(255, 153, 0));
-        btnEliminar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminar.setText("ELIMINAR");
 
         btnEditar.setBackground(new java.awt.Color(255, 153, 0));
-        btnEditar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnEditar.setForeground(new java.awt.Color(255, 255, 255));
         btnEditar.setText("EDITAR");
 
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setForeground(new java.awt.Color(255, 153, 0));
         jLabel1.setText("Nombres:");
 
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setForeground(new java.awt.Color(255, 153, 0));
         jLabel2.setText("DNI:");
 
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setForeground(new java.awt.Color(255, 153, 0));
         jLabel3.setText("Apellidos:");
 
         txtNombres.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -99,7 +95,7 @@ public class Cliente_Principal extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setForeground(new java.awt.Color(255, 153, 0));
         jLabel5.setText("Correo:");
 
         txtApellidos.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -127,7 +123,6 @@ public class Cliente_Principal extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tbClientes);
 
         btnActualizar.setBackground(new java.awt.Color(255, 153, 0));
-        btnActualizar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnActualizar.setForeground(new java.awt.Color(255, 255, 255));
         btnActualizar.setText("ACTUALIZAR");
 
@@ -143,8 +138,10 @@ public class Cliente_Principal extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setForeground(new java.awt.Color(255, 153, 0));
         jLabel6.setText("Telefono/Celular:");
+
+        txtId.setEnabled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -179,6 +176,8 @@ public class Cliente_Principal extends javax.swing.JFrame {
                                 .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(68, 68, 68)
                                 .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
@@ -198,7 +197,8 @@ public class Cliente_Principal extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -334,6 +334,7 @@ public class Cliente_Principal extends javax.swing.JFrame {
     public javax.swing.JTextField txtCelular;
     public javax.swing.JTextField txtCorreo;
     public javax.swing.JTextField txtDNI;
+    public javax.swing.JTextField txtId;
     public javax.swing.JTextField txtNombres;
     // End of variables declaration//GEN-END:variables
 }

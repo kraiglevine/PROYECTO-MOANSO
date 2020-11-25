@@ -26,11 +26,8 @@ public class InventarioDAO {
                pro.setCodigo(rs.getString(2));
                pro.setEspecie(rs.getString(3));
                pro.setCantidad(String.valueOf(rs.getDouble(4)));
-               pro.setTipo(rs.getString(5));
-               pro.setTroza(rs.getString(6));
-               pro.setProcedencia(rs.getString(7));
-               pro.setProveedor(rs.getString(8));
-               pro.setTransportista(rs.getString(9));
+               pro.setProcedencia(rs.getString(5));
+               pro.setProveedor(rs.getString(6));
                listarProducto.add(pro);
             }         
         } catch (Exception e) {
@@ -132,18 +129,15 @@ public class InventarioDAO {
     }
     
     public int agregar (Producto p){
-        String sql="INSERT INTO producto VALUES(null,?,?,?,?,?,?,?,?)";
+        String sql="INSERT INTO producto VALUES(null,?,?,?,?,?)";
         try {
             con=Conexion.getConnection();
             ps=con.prepareStatement(sql);
             ps.setString(1, p.getCodigo());
             ps.setString(2, p.getEspecie());
-            ps.setDouble(3,Double.valueOf(p.getCantidad()));
-            ps.setString(4, p.getTipo());
-            ps.setString(5, p.getTroza());
-            ps.setString(6, p.getProcedencia());
-            ps.setString(7, p.getProveedor());
-            ps.setString(8, p.getTransportista());
+            ps.setDouble(3, Double.valueOf(p.getCantidad()));
+            ps.setString(4, p.getProcedencia());
+            ps.setString(5, p.getProveedor());
             ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("Error al agregar..."+e.getMessage());
@@ -221,19 +215,16 @@ public class InventarioDAO {
   
     public int actualizar(Producto p){
         int r=0;
-        String sql="UPDATE producto SET pro_codigo=?,pro_especie=?,pro_cantidad=?,pro_tipo_madera=?,pro_tipo_troza=?,pro_procedencia=?,pro_proveedor=?,pro_tranportista=? WHERE pro_id=?";
+        String sql="UPDATE producto SET pro_codigo=?,pro_especie=?,pro_cantidad=?,pro_procedencia=?,pro_proveedor=? WHERE pro_id=?";
         try {
             con= Conexion.getConnection();
             ps=con.prepareStatement(sql);
             ps.setString(1,p.getCodigo());
             ps.setString(2,p.getEspecie());
             ps.setDouble(3,Double.valueOf(p.getCantidad()));
-            ps.setString(4,p.getTipo());
-            ps.setString(5,p.getTroza());
-            ps.setString(6,p.getProcedencia());
-            ps.setString(7,p.getProveedor());
-            ps.setString(8,p.getTransportista());
-            ps.setInt(9,p.getId());
+            ps.setString(4,p.getProcedencia());
+            ps.setString(5,p.getProveedor());
+            ps.setInt(6,p.getId());
             r=ps.executeUpdate();
             if(r==1){
                 return 1;

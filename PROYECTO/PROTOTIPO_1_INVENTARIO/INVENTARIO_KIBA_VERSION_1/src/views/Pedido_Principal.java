@@ -70,6 +70,7 @@ public class Pedido_Principal extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         tbCliente = new javax.swing.JTable();
         btnGenerarCodigo = new javax.swing.JButton();
+        txtId = new javax.swing.JTextField();
 
         jMenu1.setText("jMenu1");
 
@@ -78,7 +79,7 @@ public class Pedido_Principal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "PEDIDO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Cambria", 0, 18), new java.awt.Color(0, 0, 0))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PEDIDO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Cambria", 0, 18), new java.awt.Color(0, 0, 0))); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -105,7 +106,7 @@ public class Pedido_Principal extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID PRODUCTO", "CODIGO", "CANTIDAD", "TIPO", "TROZA"
+                "ID PRODUCTO", "CODIGO", "ESPECIE", "CANTIDAD", "PROVEEDOR"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -185,25 +186,21 @@ public class Pedido_Principal extends javax.swing.JFrame {
         jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(441, 427, 227, 59));
 
         btnListar.setBackground(new java.awt.Color(255, 153, 0));
-        btnListar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnListar.setForeground(new java.awt.Color(255, 255, 255));
         btnListar.setText("LISTAR");
         jPanel1.add(btnListar, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 30, 77, 36));
 
         btnNuevo.setBackground(new java.awt.Color(255, 153, 0));
-        btnNuevo.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnNuevo.setForeground(new java.awt.Color(255, 255, 255));
         btnNuevo.setText("NUEVO");
         jPanel1.add(btnNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, 87, 36));
 
         btnEditar.setBackground(new java.awt.Color(255, 153, 0));
-        btnEditar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnEditar.setForeground(new java.awt.Color(255, 255, 255));
         btnEditar.setText("EDITAR");
         jPanel1.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 30, 90, 36));
 
         btnEliminar.setBackground(new java.awt.Color(255, 153, 0));
-        btnEliminar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminar.setText("ELIMINAR");
         jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 30, 87, 36));
@@ -225,7 +222,6 @@ public class Pedido_Principal extends javax.swing.JFrame {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 435, -1, -1));
 
         btnActualizar.setBackground(new java.awt.Color(255, 153, 0));
-        btnActualizar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         btnActualizar.setForeground(new java.awt.Color(255, 255, 255));
         btnActualizar.setText("ACTUALIZAR");
         jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 30, 120, 36));
@@ -342,6 +338,9 @@ public class Pedido_Principal extends javax.swing.JFrame {
         });
         jPanel1.add(btnGenerarCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, -1, -1));
 
+        txtId.setEnabled(false);
+        jPanel1.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 20, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -366,7 +365,7 @@ public class Pedido_Principal extends javax.swing.JFrame {
             Conexion objCon=new Conexion();
             Connection con;
             con=Conexion.getConnection();
-            ps=con.prepareStatement("SELECT pro_id,pro_codigo,pro_cantidad,pro_tipo_madera,pro_tipo_troza FROM producto");
+            ps=con.prepareStatement("SELECT pro_id,pro_codigo,pro_especie,pro_cantidad,pro_proveedor FROM producto");
             rs= ps.executeQuery();
             int cantidadRow= modelo.getColumnCount();
             while(rs.next()){
@@ -510,6 +509,7 @@ public class Pedido_Principal extends javax.swing.JFrame {
     public javax.swing.JTextField txtCodProducto;
     public javax.swing.JTextField txtDniCliente;
     public javax.swing.JTextField txtFecha;
+    public javax.swing.JTextField txtId;
     public javax.swing.JTextField txtIdCliente;
     public javax.swing.JTextField txtIdProducto;
     // End of variables declaration//GEN-END:variables

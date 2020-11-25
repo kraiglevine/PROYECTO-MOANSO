@@ -55,7 +55,7 @@ public class Usuario_Principal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "USUARIOS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 153, 0))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "USUARIOS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 153, 0))); // NOI18N
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
         btnListar.setBackground(new java.awt.Color(255, 153, 0));
@@ -78,13 +78,13 @@ public class Usuario_Principal extends javax.swing.JFrame {
         btnEditar.setForeground(new java.awt.Color(255, 255, 255));
         btnEditar.setText("EDITAR");
 
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setForeground(new java.awt.Color(255, 153, 0));
         jLabel1.setText("Nombres:");
 
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setForeground(new java.awt.Color(255, 153, 0));
         jLabel2.setText("Apellidos:");
 
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setForeground(new java.awt.Color(255, 153, 0));
         jLabel3.setText("DNI:");
 
         txtNombres.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -99,7 +99,7 @@ public class Usuario_Principal extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setForeground(new java.awt.Color(255, 153, 0));
         jLabel4.setText("Contraseña:");
 
         txtContraseña.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -108,11 +108,12 @@ public class Usuario_Principal extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setForeground(new java.awt.Color(255, 153, 0));
         jLabel5.setText("Tipo:");
 
+        jComboBox1.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox1.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(255, 255, 255));
+        jComboBox1.setForeground(new java.awt.Color(255, 153, 0));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vendedor", "Administrador" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,6 +127,8 @@ public class Usuario_Principal extends javax.swing.JFrame {
             }
         });
 
+        tbUsuarios.setBackground(new java.awt.Color(255, 255, 255));
+        tbUsuarios.setForeground(new java.awt.Color(102, 102, 102));
         tbUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

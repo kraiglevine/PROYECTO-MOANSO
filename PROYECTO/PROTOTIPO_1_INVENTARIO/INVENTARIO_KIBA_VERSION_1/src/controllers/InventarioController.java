@@ -19,11 +19,6 @@ public class InventarioController implements ActionListener {
     Pedido_Principal view=new Pedido_Principal();
     InventarioDAO dao=new InventarioDAO();
     
-    public InventarioController (Pedido_Principal pedido){
-        this.view=pedido;
-        this.view.btnSearchProduct.addActionListener(this);
-    }
-
     public InventarioController(Inventario_Principal principal){
         this.vista=principal;
         this.vista.btnListar.addActionListener(this);
@@ -36,14 +31,6 @@ public class InventarioController implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource()== view.btnSearchProduct){
-            limpiarSearch();
-            listarProducto(view.tbPedido);
-        }
-        if(e.getSource()== view.btnSearchClient){
-            limpiarSearch();
-            listarClientes(view.tbPedido);  
-        }
         if(e.getSource()==vista.btnListar){
             limpiarTabla();
             listar(vista.tbProductos);
@@ -66,21 +53,16 @@ public class InventarioController implements ActionListener {
             String codigo= (String)vista.tbProductos.getValueAt(fila,1);
             String especie=(String)vista.tbProductos.getValueAt(fila,2);
             String cantidad=(String)vista.tbProductos.getValueAt(fila,3);
-            String tipo=(String)vista.tbProductos.getValueAt(fila, 4);
-            String troza=(String)vista.tbProductos.getValueAt(fila, 5);
-            String procedencia=(String)vista.tbProductos.getValueAt(fila, 6);
-            String proveedor=(String)vista.tbProductos.getValueAt(fila, 7);
-            String transportista=(String)vista.tbProductos.getValueAt(fila, 8);
+            String procedencia=(String)vista.tbProductos.getValueAt(fila, 4);
+            String proveedor=(String)vista.tbProductos.getValueAt(fila, 5);
+
                 
             vista.txtID.setText(id+"");
             vista.txtCodigo.setText(codigo);
             vista.txtEspecie.setText(especie);
             vista.txtCantidad.setText(cantidad);
-            vista.txtTipo.setText(tipo);
-            vista.txtTroza.setText(troza);
             vista.txtProcedencia.setText(procedencia);
             vista.txtProveedor.setText(proveedor);
-            vista.txtTransportista.setText(transportista);
             }
         } 
         if(e.getSource()==vista.btnActualizar){
@@ -120,16 +102,13 @@ public class InventarioController implements ActionListener {
         String codigo= vista.txtCodigo.getText();
         String especie= vista.txtEspecie.getText();
         String cantidad= vista.txtCantidad.getText();
-        String tipo=vista.txtTipo.getText();
-        String troza=vista.txtTroza.getText();
         String procedencia=vista.txtProcedencia.getText();
         String proveedor=vista.txtProveedor.getText();
-        String transportista=vista.txtTransportista.getText();
         
-        if(codigo.equals("")||especie.equals("")||cantidad.equals("")||tipo.equals("")||troza.equals("")||procedencia.equals("")||proveedor.equals("")||transportista.equals("")){
+        if(codigo.equals("")||especie.equals("")||cantidad.equals("")||procedencia.equals("")||proveedor.equals("")){
             JOptionPane.showMessageDialog(vista, "Debe llenar todos los campos");
         }else{
-             Producto inventario=new Producto(id, codigo, especie, cantidad, tipo, troza, procedencia, proveedor, transportista);
+             Producto inventario=new Producto(id, codigo, especie, cantidad,procedencia, proveedor);
              int r= this.dao.actualizar(inventario);
              if(r==1){
                  JOptionPane.showMessageDialog(vista, "Producto actualizado con exito...");
@@ -143,15 +122,13 @@ public class InventarioController implements ActionListener {
         String codigo= vista.txtCodigo.getText();
         String especie= vista.txtEspecie.getText();
         String cantidad= vista.txtCantidad.getText();
-        String tipo=vista.txtTipo.getText();
-        String troza=vista.txtTroza.getText();
         String procedencia=vista.txtProcedencia.getText();
         String proveedor=vista.txtProveedor.getText();
-        String transportista=vista.txtTransportista.getText();
-        if(codigo.equals("")||especie.equals("")||cantidad.equals("")||tipo.equals("")||troza.equals("")||procedencia.equals("")||proveedor.equals("")||transportista.equals("")){
+ 
+        if(codigo.equals("")||especie.equals("")||cantidad.equals("")||procedencia.equals("")||proveedor.equals("")){
             JOptionPane.showMessageDialog(vista, "Debe llenar todos los campos");
         }else{
-             Producto inventario=new Producto(codigo, especie, cantidad, tipo, troza, procedencia, proveedor, transportista);
+             Producto inventario=new Producto(codigo, especie, cantidad,procedencia, proveedor);
         int rpta=this.dao.agregar(inventario);
         if(rpta==1){
             JOptionPane.showMessageDialog(vista, "Producto registrado con exito");
@@ -164,50 +141,19 @@ public class InventarioController implements ActionListener {
     private void listar(JTable tabla){
         this.modeloTabla=(DefaultTableModel)tabla.getModel();
         List<Producto>listaInventario=this.dao.listar();
-        Object[] objeto=new Object[9];
+        Object[] objeto=new Object[6];
         for(int i=0;i<listaInventario.size();i++){
             objeto[0]=listaInventario.get(i).getId();
             objeto[1]=listaInventario.get(i).getCodigo();
             objeto[2]=listaInventario.get(i).getEspecie();
             objeto[3]=listaInventario.get(i).getCantidad();
-            objeto[4]=listaInventario.get(i).getTipo();
-            objeto[5]=listaInventario.get(i).getTroza();
-            objeto[6]=listaInventario.get(i).getProcedencia();
-            objeto[7]=listaInventario.get(i).getProveedor();
-            objeto[8]=listaInventario.get(i).getTransportista();
+            objeto[4]=listaInventario.get(i).getProcedencia();
+            objeto[5]=listaInventario.get(i).getProveedor();
             modeloTabla.addRow(objeto);  
         }
         vista.tbProductos.setModel(modeloTabla);
     }
      
-    private void listarProducto(JTable tabla){
-        this.modeloTabla=(DefaultTableModel)tabla.getModel();
-        List<Producto>listaInventario=this.dao.listar();
-        Object[] objeto=new Object[4];
-        for(int i=0;i<listaInventario.size();i++){
-            objeto[0]=listaInventario.get(i).getId();
-            objeto[1]=listaInventario.get(i).getCodigo();
-            objeto[2]=listaInventario.get(i).getEspecie();
-            objeto[3]=listaInventario.get(i).getCantidad();
-            modeloTabla.addRow(objeto);  
-        }
-        view.tbPedido.setModel(modeloTabla);
-    }
-    
-    private void listarClientes(JTable tabla){
-        this.modeloTabla=(DefaultTableModel)tabla.getModel();
-        List<Cliente>listar=this.dao.listarCliente();
-        Object[] objeto=new Object[4];
-        for(int i=0;i<listar.size();i++){
-            objeto[0]=listar.get(i).getId();
-            objeto[1]=listar.get(i).getNombre();
-            objeto[2]=listar.get(i).getApellido();
-            objeto[3]=listar.get(i).getDni();
-            modeloTabla.addRow(objeto);  
-        }
-        view.tbPedido.setModel(modeloTabla);
-    }
-
     private void limpiarTabla(){
         for(int i=0;i<vista.tbProductos.getRowCount();i++){
             modeloTabla.removeRow(i);
@@ -215,23 +161,13 @@ public class InventarioController implements ActionListener {
         }
     }
     
-    private void limpiarSearch(){
-        for(int i=0;i<view.tbPedido.getRowCount();i++){
-            modeloTabla.removeRow(i);
-            i=i-1;
-        }
-    }
-
     private void limpiarCajas(){
         vista.txtID.setText("");
         vista.txtCodigo.setText("");
         vista.txtEspecie.setText("");
         vista.txtCantidad.setText("");
-        vista.txtTipo.setText("");
-        vista.txtTroza.setText("");
         vista.txtProcedencia.setText("");
         vista.txtProveedor.setText("");
-        vista.txtTransportista.setText("");
     }
 }
  

@@ -57,6 +57,7 @@ public class ClienteController implements ActionListener{
             String correo=(String)vista4.tbClientes.getValueAt(fila, 4);
             String telefono=(String)vista4.tbClientes.getValueAt(fila, 5);
 
+            vista4.txtId.setText(id+"");
             vista4.txtNombres.setText(nombres);
             vista4.txtApellidos.setText(apellidos);
             vista4.txtDNI.setText(dni);
@@ -98,6 +99,7 @@ public class ClienteController implements ActionListener{
     } 
 
     private void actualizarCliente(){
+         int id=Integer.parseInt(vista4.txtId.getText());
          String nombres= (String)vista4.txtNombres.getText();
          String apellidos=(String)vista4.txtApellidos.getText();
          String dni=(String)vista4.txtDNI.getText();
@@ -107,7 +109,7 @@ public class ClienteController implements ActionListener{
         if(nombres.equals("")||apellidos.equals("")||dni.equals("")||correo.equals("")||telefono.equals("")){
             JOptionPane.showMessageDialog(vista4, "Debe llenar todos los campos");
         }else{
-             Cliente inventario=new Cliente(nombres, apellidos, dni, correo, telefono);
+             Cliente inventario=new Cliente(id,nombres, apellidos, dni, correo, telefono);
              int r= this.dao.actualizarCliente(inventario);
              if(r==1){
                  JOptionPane.showMessageDialog(vista4, "Cliente actualizado con exito...");
